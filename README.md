@@ -1,5 +1,7 @@
 # pluggedin
 
+<a href="https://sokolovskiy.github.io/highchart/dist/">Demo</a>
+
 ## Project setup
 ```
 npm install
