@@ -1,0 +1,80 @@
+/* ------------ Media Queries ------------ */
+		
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px)
+    
+	.welcome-widget 
+        padding: 0 20px
+        .description
+            padding: 10px 0
+
+// Large devices (desktops, less than 992px)
+@media (max-width: 991.98px)
+    .first-section
+        grid-template-columns: 2fr 1fr
+    .bottom-navigation-wrap 
+        margin-top: 15px
+        flex-direction: column
+        .header-search-input
+            width: 260px
+            height: 30px
+            margin-bottom: 15px
+            align-self: flex-end
+            outline: 1px solid #333333
+        a
+            font-size: 14px
+    .welcome-widget 
+        .description
+            padding: 5px 0
+
+// Large devices (desktops, less than 768px)            
+@media (max-width: 767.98px)
+    .header
+        flex-direction: column
+        align-items: center
+    .top-navigation-wrap
+        justify-content: center
+    .bottom-navigation-wrap 
+        .header-search-input
+            align-self: center
+    .hide-on-mobile
+        display: none
+    .first-section
+        grid-template-columns: 1fr
+    .welcome-widget-wrap
+        min-height: 400px
+    .welcome-widget 
+        max-width: 500px
+        margin: 0 auto
+        text-align: center
+        .description
+            padding: 20px 0
+        .about-link
+            margin: 10px auto
+    .news-section
+        grid-template-columns: 1fr
+        grid-template-rows: 400px 400px
+    .chart-section
+        grid-template-columns: 1fr
+
+// Large devices (desktops, less than 568px)            
+@media (max-width: 567.98px)
+    .header .mobile-nav-btn
+        display: block
+    .header-bottom-navigation
+        position: absolute
+        width: 100%
+        top: 0
+        left: -100%
+        background-color: #e0e0e0
+        transition: .3s
+        a
+            display: block
+            padding: 15px 0
+            border-bottom: 1px solid #cccccc
+            transition: .3s
+            &:hover
+                text-decoration: none
+                background-color: #cccccc
+    .header-bottom-navigation.show
+        left: 0
