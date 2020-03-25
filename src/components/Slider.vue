@@ -2,6 +2,7 @@
   <div class="slider-wrap">
     <div class="slider">
       <transition-group name="slide-fade">
+        <!-- Slider Item -->
         <div
           class="slider__item"
           v-for="(item, index) in sliders"
@@ -9,6 +10,7 @@
           v-show="item.active"
           :style="`background-image: url('${item.image}');`"
         >
+          <!-- Slider content -->
           <div class="slider-content">
             <div class="keywords">{{ item.keyWords }}</div>
             <h2 class="title">{{ item.title }}</h2>
@@ -17,11 +19,12 @@
         </div>
       </transition-group>
     </div>
+    <!-- Slider Navigation -->
     <ul class="slider__nuv">
       <li
         v-for="(item, index) in sliders"
         :key="index"
-        @click="activeItem(index)"
+        @click="currentSlide = index; activeItem(index)"
         :class="item.active ? 'active_nuv' : ''"
       ></li>
     </ul>
@@ -31,14 +34,12 @@
 <script>
 export default {
   name: "Slider",
-  props: {
-    activeSlide: {
-      default: 1
-    }
-  },
+
   template: "#slider-template",
   data: function() {
     return {
+      currentSlide: 1, // Current SLide
+      slideInterval: 10000, // Interval bentween slide animations
       sliders: [
         {
           image: "img/slider-img.png",
@@ -93,9 +94,25 @@ export default {
     };
   },
   created: function() {
-    this.sliders[this.activeSlide - 1].active = true;
+    let activeSlide = this.sliders[this.currentSlide - 1]; // define active slide
+    activeSlide.active = true; // set active property true
+
+    setInterval(() => {
+      // Set interval function
+      this.startSlider(this.currentSlide);
+    }, this.slideInterval);
   },
   methods: {
+    // Start slider animation
+    startSlider: function(currentSlide) {
+      if (currentSlide < this.sliders.length - 1) {
+        this.currentSlide++;
+      } else {
+        this.currentSlide = 0;
+      }
+      this.activeItem(currentSlide);
+    },
+    // Set active property for current slide element
     activeItem: function(index) {
       for (let i = 0; i < this.sliders.length; i++) {
         this.sliders[i].active = false;

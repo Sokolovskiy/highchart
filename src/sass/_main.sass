@@ -151,10 +151,15 @@ section
 		font-family: 'Muli', sans-serif
 		color: #ffffff
 		text-transform: uppercase
+		background-color: transparent
+		cursor: pointer
 		transition: .5s
 		&:hover
 			color: #323232
 			background-color: #ffffff   
+	.selectChartType
+		width: 152px
+		height: 30px
 //News Section    
 .news-section
 	margin-top: 2px
@@ -192,7 +197,9 @@ section
 // Chart Section
 .chart-section
 	margin-top: 2px
-	display: grid
-	grid-template-columns: 1fr 1fr
-	grid-template-rows: 400px
-	gap: 2px 2px
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+	.chart-item
+		margin: 20px 0
+		width: 50%

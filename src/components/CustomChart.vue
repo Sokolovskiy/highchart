@@ -1,17 +1,15 @@
 <template id="custom-chart">
-  <div class="">
+  <div class>
     <!-- Select -->
     <select v-model="chartType">
       <option
         v-for="option in chartTypeSelectOptions"
         v-bind:value="option.value"
         v-bind:key="option.value"
-      >
-        {{ option.text }}
-      </option>
+      >{{ option.text }}</option>
     </select>
     <!-- Chart -->
-    <highcharts :options="chartOptions"></highcharts>
+    <chart :options="chartOptions"></chart>
   </div>
 </template>
 

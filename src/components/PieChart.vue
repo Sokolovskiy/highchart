@@ -1,6 +1,6 @@
 <template id="pie-chart">
-  <div class="">
-    <highcharts :options="chartOptions"></highcharts>
+  <div class>
+    <chart :options="chartOptions"></chart>
   </div>
 </template>
 
